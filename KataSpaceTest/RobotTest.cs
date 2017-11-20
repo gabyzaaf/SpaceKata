@@ -1,0 +1,99 @@
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NFluent;
+using NUnit.Framework;
+using NUnit.Framework.Internal;
+
+namespace KataSpaceTest
+{
+    
+    public class RobotTest
+    {
+        private Robot robot;
+        private LinkedList<Robot> robotMapList;
+        private RobotMap robotMap;
+        private Robot robotWest;
+
+        [SetUp]
+        public void Init()
+        {
+            this.robot = Robot.Of(new Coordinate(0, 1, "Est"));
+            robotWest = Robot.Of(new Coordinate(0, 3, "West"));
+            robotMapList = new LinkedList<Robot>();
+            robotMapList.AddFirst(this.robot);
+            robotMapList.AddFirst(robotWest);
+            robotMap = new RobotMap(robotMapList);
+        }
+
+        [Test]
+        public void Should_Create_A_Robot_And_Validate_Line()
+        {
+            
+            Check.That(robot.Coordinate.Line).IsEqualTo(0);
+        }
+
+        [Test]
+        public void Should_Create_A_Robot_And_Validate_Column()
+        {
+            
+            Check.That(robot.Coordinate.Column).IsEqualTo(1);
+        }
+
+        [Test]
+        public void Should_Create_A_Robot_And_Validate_Direction()
+        {
+            
+            Check.That(robot.Coordinate.Direction).IsEqualTo("Est");
+        }
+
+        [Test]
+        public void Should_Create_A_Map_And_Validate_Robot()
+        {
+           
+            Check.That(robotMap.IsPresent(0, 1)).IsTrue();
+        }
+
+        [Test]
+        public void Should_Obtain_A_Robot_To_Specific_Coordonate()
+        {
+            Robot robotExpected = robotMap.ObtainRobotToCoordonate(0,1);
+            Check.That(robotExpected).IsEqualTo(this.robot);
+        }
+        
+        [Test]
+        public void Should_moving_forward_From_West()
+        {
+            Robot robotMoved = robotMap.MoveForward(0, 3);
+            Check.That(robotMoved.Coordinate.Line).IsEqualTo(0);
+            Check.That(robotMoved.Coordinate.Column).IsEqualTo(2);
+            Check.That(robotMoved).IsEqualTo(robotWest);
+        }
+
+        
+        [Test]
+        public void Should_moving_forward_From_Est()
+        {
+            Robot robotMoved = robotMap.MoveForward(0, 1);
+            Check.That(robotMoved.Coordinate.Line).IsEqualTo(0);
+            Check.That(robotMoved.Coordinate.Column).IsEqualTo(2);
+            Check.That(robotMoved).IsEqualTo(robot);
+        }
+
+        [Test]
+        public void Should_Refacto_Coordinate()
+        {
+            Robot robotEst = Robot.Of(new Coordinate(0, 1, "Est"));
+            Robot robotWest = Robot.Of(new Coordinate(1, 1, "West"));
+            var robotList = new LinkedList<Robot>();
+            robotList.AddFirst(robotEst);
+            robotList.AddFirst(robotWest);
+
+            var robotMap = new RobotMap(robotList);
+            var robotExpected = robotMap.MoveForward(0, 1);
+            Check.That(robotExpected.Coordinate.Column).IsEqualTo(2);
+
+        }
+        
+    }
+}
