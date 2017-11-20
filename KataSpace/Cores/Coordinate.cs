@@ -1,6 +1,6 @@
 ﻿namespace KataSpaceTest
 {
-    internal class Coordinate
+    public class Coordinate
     {
         public int Line { get; private set; }
         public int Column { get; private set; }

@@ -2,7 +2,7 @@
 
 namespace KataSpaceTest
 {
-    internal class Robot
+    public class Robot
     {
         public Coordinate Coordinate { get; private set; }
 

@@ -42,6 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cores\Coordinate.cs" />
+    <Compile Include="Cores\Robot.cs" />
+    <Compile Include="Cores\RobotEst.cs" />
+    <Compile Include="Cores\RobotMap.cs" />
+    <Compile Include="Cores\RobotNorth.cs" />
+    <Compile Include="Cores\RobotSouth.cs" />
+    <Compile Include="Cores\RobotWest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace KataSpaceTest
 {
-    internal class RobotMap
+    public class RobotMap
     {
         private LinkedList<Robot> robotMapList;
 
@@ -13,7 +13,7 @@ namespace KataSpaceTest
             this.robotMapList = new LinkedList<Robot>(robotMapList);
         }
 
-        internal bool IsPresent(int line, int column)
+        public bool IsPresent(int line, int column)
         {
             var robotNumerInTheSameCoordonate = robotMapList.Count(r => r.Coordinate.Line == line && r.Coordinate.Column == column);
             if (robotNumerInTheSameCoordonate > 0)

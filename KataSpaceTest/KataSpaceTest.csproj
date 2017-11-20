@@ -55,19 +55,18 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Coordinate.cs" />
-    <Compile Include="Robot.cs" />
-    <Compile Include="RobotEst.cs" />
-    <Compile Include="RobotMap.cs" />
-    <Compile Include="RobotNorth.cs" />
-    <Compile Include="RobotSouth.cs" />
     <Compile Include="RobotTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RobotWest.cs" />
     <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KataSpace\KataSpace.csproj">
+      <Project>{f5e3163b-6643-4007-84f1-ef7d62ccf8b1}</Project>
+      <Name>KataSpace</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
