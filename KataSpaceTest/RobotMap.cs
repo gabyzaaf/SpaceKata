@@ -23,27 +23,7 @@ namespace KataSpaceTest
             return false;
         }
 
-        public Robot MoveForward(int line, int column)
-        {
-            if (!IsPresent(line,column))
-            {
-                return null;
-            }
-
-            var robot = ObtainRobotToCoordonate(line, column);
-            int columnModified = robot.Coordinate.Column;
-            switch (robot.Coordinate.Direction)
-            {
-                case "West":
-                    columnModified --;
-                break;
-                case "Est":
-                    columnModified ++;
-                break;
-            }
-            robot.Coordinate.ChangeCoordinateLineAndCoordinate(robot.Coordinate.Line, columnModified);
-            return robot;
-        }
+        
 
         public Robot ObtainRobotToCoordonate(int line, int column)
         {

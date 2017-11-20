@@ -6,7 +6,7 @@ namespace KataSpaceTest
     {
         public Coordinate Coordinate { get; private set; }
 
-        private Robot(Coordinate coordinate)
+        protected Robot(Coordinate coordinate)
         {
             this.Coordinate = coordinate;
         }
@@ -16,9 +16,25 @@ namespace KataSpaceTest
         {
             if ("Est".Equals(coordinate.Direction))
             {
-                   
+               
             }
             return new Robot(coordinate);
+        }
+
+        public void MoveForward()
+        {
+            int columnModified = Coordinate.Column;
+            switch (Coordinate.Direction)
+            {
+                case "West":
+                    columnModified--;
+                    break;
+                case "Est":
+                    columnModified++;
+                    break;
+            }
+            Coordinate.ChangeCoordinateLineAndCoordinate(Coordinate.Line, columnModified);
+           
         }
     }
 }

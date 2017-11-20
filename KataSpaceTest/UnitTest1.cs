@@ -19,8 +19,8 @@ namespace KataSpaceTest
             robotList.AddFirst(robotWest);
 
             var robotMap = new RobotMap(robotList);
-            var robotExpected = robotMap.MoveForward(0, 1);
-            Check.That(robotExpected.Coordinate.Column).IsEqualTo(2);
+            robotEst.MoveForward();
+            Check.That(robotEst.Coordinate.Column).IsEqualTo(2);
 
         }
     }

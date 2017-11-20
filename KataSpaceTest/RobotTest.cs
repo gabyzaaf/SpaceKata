@@ -64,36 +64,38 @@ namespace KataSpaceTest
         [Test]
         public void Should_moving_forward_From_West()
         {
-            Robot robotMoved = robotMap.MoveForward(0, 3);
-            Check.That(robotMoved.Coordinate.Line).IsEqualTo(0);
-            Check.That(robotMoved.Coordinate.Column).IsEqualTo(2);
-            Check.That(robotMoved).IsEqualTo(robotWest);
+            robotWest.MoveForward();
+            Check.That(robotWest.Coordinate.Line).IsEqualTo(0);
+            Check.That(robotWest.Coordinate.Column).IsEqualTo(2);
+            
         }
 
         
         [Test]
         public void Should_moving_forward_From_Est()
         {
-            Robot robotMoved = robotMap.MoveForward(0, 1);
-            Check.That(robotMoved.Coordinate.Line).IsEqualTo(0);
-            Check.That(robotMoved.Coordinate.Column).IsEqualTo(2);
-            Check.That(robotMoved).IsEqualTo(robot);
+            robot.MoveForward();
+            Check.That(robot.Coordinate.Line).IsEqualTo(0);
+            Check.That(robot.Coordinate.Column).IsEqualTo(2);
+           
         }
 
+
+        /*
         [Test]
         public void Should_Refacto_Coordinate()
         {
             Robot robotEst = Robot.Of(new Coordinate(0, 1, "Est"));
-            Robot robotWest = Robot.Of(new Coordinate(1, 1, "West"));
+            Robot robotWests = Robot.Of(new Coordinate(1, 1, "West"));
             var robotList = new LinkedList<Robot>();
             robotList.AddFirst(robotEst);
-            robotList.AddFirst(robotWest);
+            robotList.AddFirst(robotWests);
 
             var robotMap = new RobotMap(robotList);
             var robotExpected = robotMap.MoveForward(0, 1);
             Check.That(robotExpected.Coordinate.Column).IsEqualTo(2);
 
         }
-        
+        */
     }
 }
