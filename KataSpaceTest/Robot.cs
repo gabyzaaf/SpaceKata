@@ -14,26 +14,19 @@ namespace KataSpaceTest
 
         public static Robot Of(Coordinate coordinate)
         {
-            if ("Est".Equals(coordinate.Direction))
+            switch (coordinate.Direction)
             {
-               
+                case "Est" :
+                    return new RobotEst(coordinate);
+                case "West":
+                    return new RobotWest(coordinate);
             }
-            return new Robot(coordinate);
+            return null;
         }
 
-        public void MoveForward()
+        public virtual void MoveForward()
         {
-            int columnModified = Coordinate.Column;
-            switch (Coordinate.Direction)
-            {
-                case "West":
-                    columnModified--;
-                    break;
-                case "Est":
-                    columnModified++;
-                    break;
-            }
-            Coordinate.ChangeCoordinateLineAndCoordinate(Coordinate.Line, columnModified);
+            
            
         }
     }

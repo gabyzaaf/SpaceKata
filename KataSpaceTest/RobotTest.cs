@@ -81,7 +81,7 @@ namespace KataSpaceTest
         }
 
 
-        /*
+        
         [Test]
         public void Should_Refacto_Coordinate()
         {
@@ -92,10 +92,10 @@ namespace KataSpaceTest
             robotList.AddFirst(robotWests);
 
             var robotMap = new RobotMap(robotList);
-            var robotExpected = robotMap.MoveForward(0, 1);
-            Check.That(robotExpected.Coordinate.Column).IsEqualTo(2);
+            robotEst.MoveForward();
+            Check.That(robotEst.Coordinate.Column).IsEqualTo(2);
 
         }
-        */
+        
     }
 }
