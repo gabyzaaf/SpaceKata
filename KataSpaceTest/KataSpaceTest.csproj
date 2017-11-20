@@ -59,6 +59,8 @@
     <Compile Include="Robot.cs" />
     <Compile Include="RobotEst.cs" />
     <Compile Include="RobotMap.cs" />
+    <Compile Include="RobotNorth.cs" />
+    <Compile Include="RobotSouth.cs" />
     <Compile Include="RobotTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RobotWest.cs" />

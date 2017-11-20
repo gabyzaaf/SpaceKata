@@ -20,6 +20,10 @@ namespace KataSpaceTest
                     return new RobotEst(coordinate);
                 case "West":
                     return new RobotWest(coordinate);
+                case "North":
+                    return new RobotNorth(coordinate);
+                case "South":
+                    return new RobotSouth(coordinate);
             }
             return null;
         }
